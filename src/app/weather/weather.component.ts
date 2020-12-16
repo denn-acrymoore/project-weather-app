@@ -17,6 +17,10 @@ export class WeatherComponent implements OnInit {
 
   WeatherData:any;
   futureTemperature: any;
+  location: string;
+  longitude: number;
+  latitude: number;
+  isSearchSuccessful: boolean;
   constructor() { }
 
 
@@ -26,9 +30,15 @@ export class WeatherComponent implements OnInit {
       isDay: true
     };
     this.futureTemperature = [-1, -1, -1, -1, -1, -1];
+    //document.getElementById("submitLocation").addEventListener("click",
+    //function(event){
+    //  event.preventDefault();
+    //});
+    this.location = "Jakarta";
+    this.isSearchSuccessful = false;
     this.getWeatherData();
-    console.log(this.WeatherData);
-    console.log(this.myDate);
+    // console.log(this.WeatherData);
+    // console.log(this.myDate);
   }
 
   getWeatherData(){
@@ -36,7 +46,32 @@ export class WeatherComponent implements OnInit {
     //fetch('https://api.openweathermap.org/data/2.5/weather?q=jakarta&appid=75f224a9280b9d612de738569c117dbb')
     .then(response=>response.json())
     .then(data=>{this.setWeatherData(data);})
-    
+  }
+
+  getWeatherDataFromForm(location: HTMLInputElement){
+    // alert(location.value);
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + location.value + '&appid=75f224a9280b9d612de738569c117dbb')
+    .then(response=>response.json())
+    .then(data=>{this.getCoordinate(data);})
+
+    if(this.isSearchSuccessful == true){
+      fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + this.latitude + '&lon=' + this.longitude + '&exclude=minutely,hourly,alerts&appid=75f224a9280b9d612de738569c117dbb')
+      .then(response=>response.json())
+      .then(data=>{this.setWeatherData(data);})
+    }
+  }
+
+  getCoordinate(data){
+    if (data.cod == 200){
+      this.isSearchSuccessful = true;
+      this.latitude = data.coord.lat;
+      this.longitude = data.coord.lon;
+      this.location = data.name;
+    }
+    else{
+      this.isSearchSuccessful = false;
+      alert("Location Not Found");
+    }
   }
 
   setWeatherData(data: any){

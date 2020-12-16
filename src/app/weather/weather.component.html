@@ -1,21 +1,11 @@
-<!--
-<div id="divWeatherMain" class="container"> 
-    <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
-        <i class="fas fa-3x fa-sun sun"></i>  
-    </div>   
-    <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
-        <i class="fas fa-3x fa-moon moon"></i>  
-    </div>   
-    <div class="weatherWidgetRow cloudDiv">
-        <i class="fas fa-cloud fa-3x cloud"></i>
+<div class="hero" data-bg-image="images/banner.png">
+    <div class="container">
+        <form id="locationSearchForm" action="#" class="find-location" onsubmit="getWeatherDataFromForm()">
+            <input type="text" placeholder="Find your location..." [(ngModel)]="location" #locationValue>
+            <button id="submitLocation" (click)="getWeatherDataFromForm(locationValue)">Find</button>
+        </form>
     </div>
-    <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°</div>
-    <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</div>
-    <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
-    <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
-    <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
 </div>
--->
 
 <div class="forecast-table">
     <div class="container">
@@ -26,7 +16,7 @@
                     <div class="date">{{myDate | date}}</div>
                 </div> 
                 <div class="forecast-content">
-                    <div class="location">{{WeatherData.name}}</div>
+                    <div class="location">{{location}}</div>
                     <div class="degree">
       <div class="num">{{WeatherData.temp_celcius}}<sup>o</sup>C</div>
       
