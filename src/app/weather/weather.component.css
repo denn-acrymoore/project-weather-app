@@ -1,3 +1,25 @@
+.find-location button{
+  -webkit-appearance: button;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  padding: 0 40px;
+  border: none;
+  background: #009ad8;
+  border-radius: 30px;
+  color: white;
+}
+.find-location button:focus{
+  outline: none;
+}
+
+.hero {
+  background-size: cover;
+  padding: 70px 0;
+  min-height: 350px; }
+
 #divWeatherMain{
     display: block;
     border-radius: 10px;
