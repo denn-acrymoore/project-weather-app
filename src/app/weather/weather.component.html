@@ -1,104 +1,106 @@
-<div class="hero" data-bg-image="images/banner.png">
-    <div class="container">
-        <form id="locationSearchForm" action="#" class="find-location" onsubmit="getWeatherDataFromForm()">
-            <input type="text" placeholder="Find your location..." [(ngModel)]="location" #locationValue>
-            <button id="submitLocation" (click)="getWeatherDataFromForm(locationValue)">Find</button>
-        </form>
+<div class="site-content">
+    <div class="hero" data-bg-image="images/banner.png">
+        <div class="container">
+            <form id="locationSearchForm" action="#" class="find-location" onsubmit="getWeatherDataFromForm()">
+                <input type="text" placeholder="Find your location..." [(ngModel)]="location" #locationValue>
+                <button id="submitLocation" (click)="getWeatherDataFromForm(locationValue)">Find</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<div class="forecast-table">
-    <div class="container">
-        <div class="forecast-container">
-            <div class="today forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate | date:'EEEE'}}</div>
-                    <div class="date">{{myDate | date}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="location">{{location}}</div>
-                    <div class="degree">
-      <div class="num">{{WeatherData.temp_celcius}}<sup>o</sup>C</div>
-      
+    <div class="forecast-table">
+        <div class="container">
+            <div class="forecast-container">
+                <div class="today forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate | date:'EEEE'}}</div>
+                        <div class="date">{{myDate | date}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="location">{{location}}</div>
+                        <div class="degree">
+        <div class="num">{{WeatherData.temp_celcius}}<sup>o</sup>C</div>
+        
+                            <div class="forecast-icon">
+                                <img src="../images/icons/icon-1.svg" alt="" width=90>
+                            </div>	
+                        </div>
+                        <span><img src="../images/icon-umberella.png" alt="">{{WeatherData.current.humidity}}%</span>
+                        <span><img src="../images/icon-wind.png" alt="">{{WeatherData.current.wind_speed}}m/s</span>
+                        <!--<span><img src="images/icon-compass.png" alt="">East</span>-->
+                    </div>
+                </div>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate2 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
                         <div class="forecast-icon">
-                            <img src="../images/icons/icon-1.svg" alt="" width=90>
-                        </div>	
+                            <img src="images/icons/icon-3.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[0]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[0].humidity}}%</small>
                     </div>
-                    <span><img src="../images/icon-umberella.png" alt="">{{WeatherData.current.humidity}}%</span>
-                    <span><img src="../images/icon-wind.png" alt="">{{WeatherData.current.wind_speed}}m/s</span>
-                    <!--<span><img src="images/icon-compass.png" alt="">East</span>-->
                 </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate2 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-3.svg" alt="" width=48>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate3 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="images/icons/icon-5.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[1]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[1].humidity}}%</small>
                     </div>
-                    <div class="degree">{{futureTemperature[0]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[0].humidity}}%</small>
                 </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate3 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-5.svg" alt="" width=48>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate4 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="images/icons/icon-7.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[2]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[2].humidity}}%</small>
                     </div>
-                    <div class="degree">{{futureTemperature[1]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[1].humidity}}%</small>
                 </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate4 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-7.svg" alt="" width=48>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate5 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="images/icons/icon-12.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[3]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[3].humidity}}%</small>
                     </div>
-                    <div class="degree">{{futureTemperature[2]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[2].humidity}}%</small>
                 </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate5 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-12.svg" alt="" width=48>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate6 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="images/icons/icon-13.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[4]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[4].humidity}}%</small>
                     </div>
-                    <div class="degree">{{futureTemperature[3]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[3].humidity}}%</small>
                 </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate6 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-13.svg" alt="" width=48>
+                <div class="forecast">
+                    <div class="forecast-header">
+                        <div class="day">{{myDate7 | date:'EEEE'}}</div>
+                    </div> 
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="images/icons/icon-14.svg" alt="" width=48>
+                        </div>
+                        <div class="degree">{{futureTemperature[5]}}<sup>o</sup>C</div>
+                        <small>{{WeatherData.daily[5].humidity}}%</small>
                     </div>
-                    <div class="degree">{{futureTemperature[4]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[4].humidity}}%</small>
-                </div>
-            </div>
-            <div class="forecast">
-                <div class="forecast-header">
-                    <div class="day">{{myDate7 | date:'EEEE'}}</div>
-                </div> 
-                <div class="forecast-content">
-                    <div class="forecast-icon">
-                        <img src="images/icons/icon-14.svg" alt="" width=48>
-                    </div>
-                    <div class="degree">{{futureTemperature[5]}}<sup>o</sup>C</div>
-                    <small>{{WeatherData.daily[5].humidity}}%</small>
                 </div>
             </div>
         </div>
