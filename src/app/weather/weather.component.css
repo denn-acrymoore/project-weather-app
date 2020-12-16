@@ -7,13 +7,37 @@
   bottom: 5px;
   padding: 0 40px;
   border: none;
-  background: #009ad8;
+  background: #3c9c33;
   border-radius: 30px;
   color: white;
 }
+
 .find-location button:focus{
   outline: none;
 }
+
+.find-location button:hover{
+  transition: .2s;
+  background: #04534d;
+  color: white; 
+}
+
+.find-location {
+  position: relative;
+  margin-bottom: 70px; }
+  .find-location input[type="text"] {
+    font-size: 16px;
+    width: 100%;
+    padding: 20px 50px 20px 30px;
+    background: #0f68db2d;
+    color: white; }
+  .find-location button{
+    font-size: 18px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    margin-right: 3px; }
 
 .hero {
   background-size: cover;
@@ -147,7 +171,7 @@
           font-size: 16px;
           font-size: 1.1428571429em; }
   
-container {
+.container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
