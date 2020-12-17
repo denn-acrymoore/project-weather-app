@@ -138,6 +138,12 @@ export class WeatherComponent implements OnInit {
   }
 
   getPastWeatherData(){
+    this.pastTemperature = [-1, -1, -1, -1];
+    this.pastHumidity = [-1, -1, -1, -1];
+    this.urlIconToday_minus1 = "http://openweathermap.org/img/wn/03d@2x.png";
+    this.urlIconToday_minus2 = "http://openweathermap.org/img/wn/03d@2x.png";
+    this.urlIconToday_minus3 = "http://openweathermap.org/img/wn/03d@2x.png";
+    this.urlIconToday_minus4 = "http://openweathermap.org/img/wn/03d@2x.png";
     this.getPastWeatherData1();
   }
 
