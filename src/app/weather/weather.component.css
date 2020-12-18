@@ -169,13 +169,13 @@
         .forecast-table2 {
           margin-top: 175px;
         }
-        @media screen and (max-width:400px){
+        @media screen and (max-width:450px){
           .forecast-container .forecast .forecast-content .degree{
             font-size: 14px;
             margin-left: -10px;
           }
         }
-        @media screen and (max-width: 550px)and (min-width:400px){
+        @media screen and (max-width: 550px)and (min-width:450px){
           .forecast-container .forecast .forecast-content .degree{
             font-size: 20px;
             margin-left: -10px;
@@ -187,7 +187,11 @@
             margin-left: -5px;
           }
         }
-        
+        @media screen and (min-width: 320px) and (max-width: 480px){
+          .forecast-container .forecast .forecast-content .forecast-icon{
+            margin-left: -15px;
+          }
+        }
   
 .container {
   margin-right: auto;
